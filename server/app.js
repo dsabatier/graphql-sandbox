@@ -3,11 +3,11 @@ const express = require('express');
 const graphqlHTTP = require('express-graphql');
 const schema = require('./schema/schema.js');
 const mongoose = require('mongoose')
-const app = express();
 const cors = require('cors');
+const app = express();
 const port = 4000;
 
-//app.use(cors);
+app.use(cors());
 
 mongoose.connect('mongodb://' + config);
 mongoose.connection.once('open', () => {
