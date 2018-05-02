@@ -1,10 +1,10 @@
 # graphql-sandbox
 Sandbox for experimenting with graphql and react
 
-clone repo
-yarn
-create and setup server/config/secret.js (requires mongodb, I use mlab)
-cd server/
-node app
-navigate to localhost:4000
-test away
+1. clone repo
+2. yarn
+3. create and setup server/config/secret.js (requires mongodb, I use mlab)
+4. cd server/
+5. node app
+6. navigate to localhost:4000
+7. test away
