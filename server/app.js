@@ -7,8 +7,8 @@ const app = express();
 const cors = require('cors');
 const port = 4000;
 
-app.use(cors);
-console.log(config);
+//app.use(cors);
+
 mongoose.connect('mongodb://' + config);
 mongoose.connection.once('open', () => {
     console.log('connected to db');
@@ -18,8 +18,6 @@ const graphqlOptions = {
     schema,
     graphiql: true
 };
-
-console.log(graphqlOptions);
 
 app.use('/graphql', graphqlHTTP(graphqlOptions));
 
