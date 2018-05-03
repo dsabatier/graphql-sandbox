@@ -1,6 +1,6 @@
 const graphql = require('graphql');
 const _ = require('lodash');
-const Book = require('../models/Book');
+const Book = require('../models/book');
 const Author = require('../models/author');
 
 const { 
@@ -32,11 +32,10 @@ const BookType = new GraphQLObjectType({
 const AuthorType = new GraphQLObjectType({
     name: 'Author',
     fields: () => ({
-        id: { type: GraphQLString },
+        id: { type: GraphQLID },
         name: { type: GraphQLString },
         age:  { type: GraphQLInt },
         books: {
-            type: GraphQLList,
             type: new GraphQLList(BookType),
             resolve(parent, args){
                 return Book.find({authorId: parent.id})
@@ -53,7 +52,7 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLID } },
             resolve(parent, args){
                 // code to get data from db
-                return Book.findById({id: args.id});
+                return Book.findById(args.id);
             }
         },
         author: {
@@ -61,7 +60,7 @@ const RootQuery = new GraphQLObjectType({
             args: { id: { type: GraphQLID } },
             resolve(parent, args){
                 // code to get data from db
-                return Author.findById({id: args.id});
+                return Author.findById(args.id);
             }
         },
         books: {

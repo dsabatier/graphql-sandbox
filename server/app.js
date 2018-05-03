@@ -8,7 +8,7 @@ const app = express();
 const port = 4000;
 
 app.use(cors());
-
+console.log(config);
 mongoose.connect('mongodb://' + config);
 mongoose.connection.once('open', () => {
     console.log('connected to db');
